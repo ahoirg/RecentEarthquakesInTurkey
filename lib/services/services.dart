@@ -36,7 +36,7 @@ class EarthquakesDetail {
     if (_data != null &&
         _date != null &&
         DateTime.now().difference(DateTime.parse(jsonDecode(_date))).inMinutes <
-            3) {
+            1) {
       var _result = jsonDecode(_data);
       _details = _result['result'];
     } else {

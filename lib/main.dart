@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'pages/detail_page.dart';
 import 'pages/home_page.dart';
 import 'pages/loading_page.dart';
 
@@ -17,7 +16,6 @@ class EarthquakesApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (context) => HomePage(),
         LoadingPage.routeName: (context) => LoadingPage(),
-        DetailPage.routeName: (context) => DetailPage(),
       },
     );
   }
