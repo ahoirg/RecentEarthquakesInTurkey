@@ -9,32 +9,31 @@ List<Widget> getFlatButtons(List<EarthquakesModel> _details) {
 
   List<Widget> _buttons = new List<Widget>();
   _details.forEach((element) {
-    _buttons.add(getFlatButton(element));
+    _buttons.add(getResultFlatButton(element));
   });
   return _buttons;
 }
 
-Widget getFlatButton(EarthquakesModel model) {
-  var _location = model.location;
+Widget getResultFlatButton(EarthquakesModel model) {
   return Card(
     child: Container(
       child: Row(
         children: [
           Expanded(
             flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-              child: Container(
-                child: Center(
+            child: Container(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
                   child: Text(
                     model.magnitude,
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.red,
-                ),
+              ),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red,
               ),
             ),
           ),
@@ -47,7 +46,7 @@ Widget getFlatButton(EarthquakesModel model) {
                     ListTile(
                       title: Text(
                         model.location,
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 17),
                       ),
                       subtitle: Text(model.date),
                     ),

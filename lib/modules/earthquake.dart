@@ -1,6 +1,3 @@
-import '../services/services.dart';
-import 'dart:convert';
-
 class EarthquakesModel {
   String magnitude;
   double latitude;
