@@ -3,10 +3,6 @@ import '../modules/earthquake.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
 List<Widget> getFlatButtons(List<EarthquakesModel> _details) {
-  if (_details == null) {
-    return [];
-  }
-
   List<Widget> _buttons = <Widget>[];
   _details.forEach((element) {
     _buttons.add(getResultFlatButton(element));
@@ -26,7 +22,7 @@ Widget getResultFlatButton(EarthquakesModel model) {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    model.magnitude,
+                    model.magnitude ?? '0.0',
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
@@ -45,10 +41,10 @@ Widget getResultFlatButton(EarthquakesModel model) {
                   children: [
                     ListTile(
                       title: Text(
-                        model.location,
+                        model.location ?? 'Bilinmiyor',
                         style: TextStyle(fontSize: 17),
                       ),
-                      subtitle: Text(model.date),
+                      subtitle: Text(model.date ?? ''),
                     ),
                   ],
                 ),
@@ -63,7 +59,10 @@ Widget getResultFlatButton(EarthquakesModel model) {
                 size: 30,
               ),
               onPressed: () {
-                MapsLauncher.launchCoordinates(model.latitude, model.longitude);
+                 MapsLauncher.launchCoordinates(
+                  model.latitude ?? 0.0,  
+                  model.longitude ?? 0.0, 
+                );
               },
             ),
           ),

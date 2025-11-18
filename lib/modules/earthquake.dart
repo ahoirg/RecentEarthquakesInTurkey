@@ -1,10 +1,10 @@
 class EarthquakesModel {
-  String magnitude;
-  double latitude;
-  double longitude;
-  String location;
-  String depth;
-  String date;
+  String? magnitude;
+  double? latitude;
+  double? longitude;
+  String? location;
+  String? depth;
+  String? date;
 
   EarthquakesModel({
     this.magnitude,

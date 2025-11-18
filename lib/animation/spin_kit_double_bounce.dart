@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SpinKitDoubleBounce extends StatefulWidget {
   SpinKitDoubleBounce({
-    Key key,
+    Key? key,
     this.color,
     this.size = 50.0,
     this.itemBuilder,
@@ -11,12 +11,11 @@ class SpinKitDoubleBounce extends StatefulWidget {
             !(itemBuilder is IndexedWidgetBuilder && color is Color) &&
                 !(itemBuilder == null && color == null),
             'You should specify either a itemBuilder or a color'),
-        assert(size != null),
         super(key: key);
 
-  final Color color;
+  final Color? color;
   final double size;
-  final IndexedWidgetBuilder itemBuilder;
+  final IndexedWidgetBuilder? itemBuilder;
   final Duration duration;
 
   @override
@@ -25,8 +24,8 @@ class SpinKitDoubleBounce extends StatefulWidget {
 
 class _SpinKitDoubleBounceState extends State<SpinKitDoubleBounce>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation1;
+  late AnimationController _controller;
+  late Animation<double> _animation1;
 
   void _statusListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
@@ -50,7 +49,7 @@ class _SpinKitDoubleBounceState extends State<SpinKitDoubleBounce>
         curve: Curves.easeInOut,
       ),
     )
-      ..addListener(() => setState(() => <String, void>{}))
+      ..addListener(() => setState(() {})) 
       ..addStatusListener(_statusListener);
 
     _controller.forward();
@@ -84,11 +83,11 @@ class _SpinKitDoubleBounceState extends State<SpinKitDoubleBounce>
     return SizedBox.fromSize(
       size: Size.square(widget.size),
       child: widget.itemBuilder != null
-          ? widget.itemBuilder(context, index)
+          ? widget.itemBuilder!(context, index)
           : DecoratedBox(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: widget.color.withOpacity(0.6),
+                color: widget.color!.withValues(alpha: 0.6),
               ),
             ),
     );

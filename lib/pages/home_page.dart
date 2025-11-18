@@ -11,15 +11,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<int> top = [];
-  List<Widget> bottom;
+  List<Widget> bottom = [];
   List<EarthquakesModel> _details =<EarthquakesModel>[];
-  List<EarthquakesModel> _innerDetails;
+  List<EarthquakesModel> _innerDetails = <EarthquakesModel>[];
   double minMagnitude = 1.0;
 
   void filterResult(value) {
     List<EarthquakesModel> _temp = <EarthquakesModel>[];
     _details.forEach((element) {
-      if (double.parse(element.magnitude) >= value) {
+      if (double.parse(element.magnitude ?? '0.0') >= value) {
         _temp.add(element);
       }
     });
@@ -32,8 +32,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _details = ModalRoute.of(context).settings.arguments;
-    bottom = getFlatButtons(_innerDetails ?? _details);
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args != null && args is List<EarthquakesModel>) { 
+      _details = args;
+    }
+    
+    bottom = getFlatButtons(_innerDetails.isEmpty ? _details : _innerDetails);
 
     return SafeArea(
       child: Scaffold(
