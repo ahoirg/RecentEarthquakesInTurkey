@@ -12,12 +12,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<int> top = [];
   List<Widget> bottom;
-  List<EarthquakesModel> _details = List<EarthquakesModel>();
+  List<EarthquakesModel> _details =<EarthquakesModel>[];
   List<EarthquakesModel> _innerDetails;
   double minMagnitude = 1.0;
 
   void filterResult(value) {
-    List<EarthquakesModel> _temp = List<EarthquakesModel>();
+    List<EarthquakesModel> _temp = <EarthquakesModel>[];
     _details.forEach((element) {
       if (double.parse(element.magnitude) >= value) {
         _temp.add(element);

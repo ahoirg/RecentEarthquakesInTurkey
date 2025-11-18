@@ -7,7 +7,7 @@ List<Widget> getFlatButtons(List<EarthquakesModel> _details) {
     return [];
   }
 
-  List<Widget> _buttons = new List<Widget>();
+  List<Widget> _buttons = <Widget>[];
   _details.forEach((element) {
     _buttons.add(getResultFlatButton(element));
   });

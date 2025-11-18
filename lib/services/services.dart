@@ -26,7 +26,7 @@ class EarthquakesDetail {
     dynamic _details;
     dynamic _result;
     final _prefs = await SharedPreferences.getInstance();
-    List<EarthquakesModel> _list = List<EarthquakesModel>();
+    List<EarthquakesModel> _list = <EarthquakesModel>[];
 
     final _data = _prefs.getString('data');
     final _date = _prefs.getString('date');
