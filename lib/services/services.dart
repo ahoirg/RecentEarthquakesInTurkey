@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:guncel_son_depremler/modules/earthquake.dart';
 import 'package:http/http.dart' as http;
 import '../utilities.dart';
@@ -9,8 +8,6 @@ class NetworkHelper {
   Future getEarthquakes() async {
     var response = await http.get(url + '?limit=150');
     if (response.statusCode != 504) {
-      Duration _d = new Duration(seconds: 5);
-      sleep(_d);
       response = await http.get(url + '?limit=150');
     }
     if (response.statusCode != 200) {
@@ -19,6 +16,7 @@ class NetworkHelper {
       if (_data != null) return _data;
       return;
     }
+
     return response.body;
   }
 }
@@ -51,13 +49,15 @@ class EarthquakesDetail {
 
     _details.forEach((element) {
       try {
+        var coordinates = element['geojson']['coordinates'];
+
         EarthquakesModel _earthquakesModel = new EarthquakesModel();
         _earthquakesModel.magnitude = element['mag'].toString();
-        _earthquakesModel.latitude = element['lat'];
-        _earthquakesModel.longitude = element['lng'];
-        _earthquakesModel.location = element['lokasyon'];
+        _earthquakesModel.latitude = coordinates[1];
+        _earthquakesModel.longitude = coordinates[0];
+        _earthquakesModel.location = element['location_tz'];
         _earthquakesModel.depth = element['depth'].toString();
-        _earthquakesModel.date = element['date'];
+        _earthquakesModel.date = element['date_time'];
         _list.add(_earthquakesModel);
       } catch (ex) {
         print(ex);
