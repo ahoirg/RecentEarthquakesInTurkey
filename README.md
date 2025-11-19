@@ -1,4 +1,4 @@
-[![Flutter CI](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml)
+[![Flutter CI](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml/badge.svg)](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Recent Earthquakes in Turkey — Mobile Application
 
