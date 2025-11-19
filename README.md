@@ -1,4 +1,4 @@
-# Recent Earthquakes In Turkey
+# Recent Earthquakes in Turkey — Mobile Application
 
 Mobile application that shows recent earthquakes occurred in Turkey.
 
