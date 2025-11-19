@@ -1,3 +1,5 @@
+[![Flutter CI](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/ahoirg/recent-earthquakes-turkey-flutter-app/actions/workflows/main.yml)
+
 # Recent Earthquakes in Turkey — Mobile Application
 
 A mobile application that shows recent earthquakes in Turkey.
